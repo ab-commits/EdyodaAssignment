@@ -1,0 +1,11 @@
+Assignment 2
+============
+Suppose you have deployed your application using a deployment controller. Assume the initial number of replicas is one. 
+Write the steps needed to update a container's image using deployment, making sure that there is zero downtime.
+
+We dont distrub the whole system we slowly inject new code in continous running application using ROLLING UPDATE
+#kubectl describe deploy name_of_app
+under this we can see Strategy Type=Rolling Update
+ROlling updates requires 2 things
+1)MinReadySeconds
+2)Changing Image version
