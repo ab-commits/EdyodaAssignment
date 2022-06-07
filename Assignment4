@@ -1,0 +1,31 @@
+After Successfull excecution of command
+#kubectl apply -f .
+and then doing #kubectl get svc
+NAME         TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+db           ClusterIP   10.97.228.251    <none>        5432/TCP         10m
+kubernetes   ClusterIP   10.96.0.1        <none>        443/TCP          12m
+redis        ClusterIP   10.106.215.177   <none>        6379/TCP         10m
+result       NodePort    10.99.71.168     <none>        5001:31001/TCP   10m
+vote         NodePort    10.103.103.208   <none>        5000:31000/TCP   10m
+
+
+now deleting voting pod first
+-------------------------------
+#kubectl delete po vote-94849dc97-qksk9 
+a new voting pod was immedaitely creating and
+ it was not remembering the container id which voted earlier.
+
+now deleting worker pod
+-----------------------
+kubectl delete po worker-dd46d7584-bddbt
+a new worker pod was immedaitely creating and it was remembering the container id which voted earlier.so that total vote count was same as earlier
+
+now deleting result pod
+-----------------------
+a new voting pod was immedaitely created and the application was working fine
+
+on deletion of db pod
+---------------------
+loss of data happend
+and the result app restarted
+to again making result pod work fine we should delete result pod it will create new pod and will make connection with db and then it will work fine
