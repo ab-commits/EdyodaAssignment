@@ -1,0 +1,6 @@
+Assignment 1
+=============
+
+Q.Write a common use-case, where you will use a daemon set instead of replica set.
+=> Deamon set is used to ensure that a pod is defined on all the nodes or defined subset of nodes.
+one of the use case is like running a pod for logging purpose on all the nodes.
