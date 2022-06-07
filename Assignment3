@@ -1,0 +1,11 @@
+Assignment 3
+=============
+You have deployed an application, that is listening at port 8000. You used a replica-set to deploy it and created a NodePort service to make it accessible. But when you test it,
+somehow the application is not reachable at the port. Write down your approach and sequentially all the steps that you will take to find out the issue
+
+As its clearly mentioned that type of service is NodePort
+1)one possibility of troubleshooting is we will first check it running within the cluster only for that we will change
+the type of service to Cluster ip and then check it whether its working fine within cluster or not
+2)Second possibility is to check whether the nodeport is correclt assigned a valid port number i.e above 30000 and below 32767
+3)Another possibility might be of labelling it correctly to app because service will map to newly created pod of app-name specified by us
+
